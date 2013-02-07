@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -13,10 +14,9 @@ void insertion_sort(string* array, int n)
     {
         key=array[i];
         j=i-1;
-        while (j>=0 && array[j]>key)
+        for (j = i-1; j >=0 && _strcmpi(array[j].c_str(), key.c_str()) > 0; j--)
         {
             array[j+1]=array[j];
-            j=j-1;
         }
         array[j+1]=key;
     }
@@ -33,7 +33,6 @@ int main()
     {
         getline(myfile,line);
         numbers[c]=line;
-        //stringstream(line)>>numbers[c];
         c++;
     }
 
